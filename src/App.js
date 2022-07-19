@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { ErrorContextProvider } from "./contexts/ErrorContext";
+import { LoadingContextProvider } from "./contexts/LoadingContext";
+import { RegisterContextProvider } from "./contexts/RegisterContext";
+import { UserContextProvider } from "./contexts/UserContext";
+import WebRouter from "./routes/WebRouter";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LoadingContextProvider>
+      <ErrorContextProvider>
+        <UserContextProvider>
+          <RegisterContextProvider>
+            <WebRouter />
+          </RegisterContextProvider>
+        </UserContextProvider>
+      </ErrorContextProvider>
+    </LoadingContextProvider>
   );
 }
 
