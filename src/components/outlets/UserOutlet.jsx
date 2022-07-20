@@ -1,13 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../Navbar";
+import { RecordContextProvider } from "../../contexts/RecordContext";
+import Navbar from "../navbar/Navbar";
 
 function UserOutlet() {
   return (
     <>
-      <Navbar />
-      <div>Outlet</div>
-      <Outlet />
+      <RecordContextProvider>
+        <Navbar />
+        <Outlet />
+      </RecordContextProvider>
     </>
   );
 }

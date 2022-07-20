@@ -4,7 +4,8 @@ import axios from "../config/axios";
 import { useLoading } from "../contexts/LoadingContext";
 import { useError } from "../contexts/ErrorContext";
 import { setAccessToken } from "../services/localStorage";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
+import { useUser } from "../contexts/UserContext";
 
 function RegisterPage() {
   const obj = useRegister();
@@ -20,6 +21,7 @@ function RegisterPage() {
   } = obj;
   const { setLoading } = useLoading();
   const { setError } = useError();
+  const { fetchUser } = useUser();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -42,6 +44,7 @@ function RegisterPage() {
       console.log(result);
       const token = result.data.token;
       setAccessToken(token);
+      await fetchUser();
     } catch (err) {
       setError(err.response.data.message);
     } finally {

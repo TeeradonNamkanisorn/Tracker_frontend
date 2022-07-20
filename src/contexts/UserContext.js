@@ -3,7 +3,13 @@ import { useError } from "./ErrorContext";
 import { useLoading } from "./LoadingContext";
 import axios from "../config/axios";
 
-const { createContext, useContext, useState, useEffect } = require("react");
+const {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} = require("react");
 
 const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
@@ -13,11 +19,16 @@ const UserContextProvider = ({ children }) => {
   const { setLoading } = useLoading();
   const { setError } = useError();
 
-  const fetchUser = async () => {
+  const clearUser = () => {
+    setUserId(null);
+    setUsername("");
+    setEmail("");
+  };
+
+  const fetchUser = useCallback(async () => {
     try {
       setLoading(true);
       const res = await axios.get("/user/self");
-      console.log(res.data);
       setUserId(res.data.user.id);
       setEmail(res.data.user.email);
       setUsername(res.data.user.username);
@@ -26,15 +37,17 @@ const UserContextProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (getAccessToken()) {
       fetchUser();
     }
-  }, []);
+  }, [fetchUser]);
   return (
-    <UserContext.Provider value={{ username, setUsername, email, setEmail }}>
+    <UserContext.Provider
+      value={{ username, setUsername, email, setEmail, clearUser, fetchUser }}
+    >
       {children}
     </UserContext.Provider>
   );

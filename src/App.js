@@ -10,9 +10,7 @@ function App() {
     <LoadingContextProvider>
       <ErrorContextProvider>
         <UserContextProvider>
-          <RegisterContextProvider>
-            <WebRouter />
-          </RegisterContextProvider>
+          <WebRouter />
         </UserContextProvider>
       </ErrorContextProvider>
     </LoadingContextProvider>
