@@ -23,6 +23,39 @@ const RecordContextProvider = ({ children }) => {
     }
   }, []);
 
+  const getAllExpenses = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get("/record/records?type=EXPENSE");
+      setExpenses(res.data.records);
+    } catch (err) {
+      setError(err.response.data.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getRecords = async (queryObj) => {
+    try {
+      let query = "";
+      if (queryObj["today"]) {
+        query += "today=true";
+      }
+
+      if (queryObj["date"]) {
+        query += "date=" + queryObj.date;
+      }
+
+      setLoading(true);
+      const res = await axios.get("/record/records?" + query);
+      setRecords(res.data.records);
+    } catch (err) {
+      setError(err.response.data.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <RecordContext.Provider
       value={{
@@ -33,6 +66,8 @@ const RecordContextProvider = ({ children }) => {
         records,
         setRecords,
         getAllIncomes,
+        getAllExpenses,
+        getRecords,
       }}
     >
       {children}

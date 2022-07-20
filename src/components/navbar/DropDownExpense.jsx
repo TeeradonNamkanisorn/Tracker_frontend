@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function DropDownExpense() {
@@ -36,7 +36,10 @@ function DropDownExpense() {
         Expense
         {show && (
           <>
-            <div className="absolute bg-red-400 text-white top-10 h-8 border-black border text-sm w-full flex justify-center items-center">
+            <div
+              className="absolute bg-red-400 text-white top-10 h-8 border-black border text-sm w-full flex justify-center items-center"
+              onClick={() => navigate("/view-expense")}
+            >
               View
             </div>
             <div

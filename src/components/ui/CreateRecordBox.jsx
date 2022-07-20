@@ -4,24 +4,28 @@ import { useLoading } from "../../contexts/LoadingContext";
 import axios from "../../config/axios";
 import { useRecords } from "../../contexts/RecordContext";
 
-function CreateIncomeBox({ setShowModal }) {
+function CreateRecordBox({ setShowModal, type }) {
   const { setError } = useError();
   const { setLoading } = useLoading();
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
-  const [date, setDate] = useState(new Date());
-  const { getAllIncomes } = useRecords();
+  const [date, setDate] = useState("");
+  const { getAllIncomes, getAllExpenses } = useRecords();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post("/record", { title, amount, date, type: "INCOME" });
+      await axios.post("/record", { title, amount, date, type });
       setShowModal(false);
       setTitle("");
       setAmount(0);
       setDate(new Date());
-      await getAllIncomes();
+      if (type === "INCOME") {
+        await getAllIncomes();
+      } else if (type === "EXPENSE") {
+        await getAllExpenses();
+      }
     } catch (err) {
       setError(err.response.data.message);
     } finally {
@@ -100,4 +104,4 @@ function CreateIncomeBox({ setShowModal }) {
   );
 }
 
-export default CreateIncomeBox;
+export default CreateRecordBox;

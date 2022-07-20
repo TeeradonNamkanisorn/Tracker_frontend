@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function DropDownIncome() {
@@ -36,7 +36,10 @@ function DropDownIncome() {
         Income
         {show && (
           <>
-            <div className="absolute bg-green-400 text-white top-10 h-8 border-black border text-sm w-full flex justify-center items-center">
+            <div
+              className="absolute bg-green-400 text-white top-10 h-8 border-black border text-sm w-full flex justify-center items-center"
+              onClick={() => navigate("/view-income")}
+            >
               View
             </div>
             <div

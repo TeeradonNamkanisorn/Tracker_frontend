@@ -5,35 +5,35 @@ import CreateRecordBox from "../components/ui/CreateRecordBox";
 import { useRecords } from "../contexts/RecordContext";
 import { useUser } from "../contexts/UserContext";
 
-function EditIncomePage() {
+function EditExpensePage() {
   const [showModal, setShowModal] = useState(false);
-  const { getAllIncomes, incomes } = useRecords();
+  const { getAllExpenses, expenses } = useRecords();
   const { email } = useUser();
 
   useEffect(() => {
     if (!email) return;
-    getAllIncomes();
+    getAllExpenses();
   }, [email]);
 
   return (
     <>
-      <h1 className="block mx-auto w-32 text-lg">My Income</h1>
+      <h1 className="block mx-auto w-32 text-lg">My Expense</h1>
       <button
         onClick={() => setShowModal((prev) => !prev)}
-        className="bg-green-600 text-white rounded-md px-2 py-1"
+        className="bg-red-600 text-white rounded-md px-2 py-1"
       >
-        Create Income Record
+        Create Expense Record
       </button>
-      <EditTable type="INCOME" records={incomes} />
+      <EditTable records={expenses} type="EXPENSE" />
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
-        title="Create new income"
+        title="Create new expense"
       >
-        <CreateRecordBox setShowModal={setShowModal} type="INCOME" />
+        <CreateRecordBox type="EXPENSE" setShowModal={setShowModal} />
       </Modal>
     </>
   );
 }
 
-export default EditIncomePage;
+export default EditExpensePage;

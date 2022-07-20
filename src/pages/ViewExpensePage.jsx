@@ -3,22 +3,16 @@ import ViewTable from "../components/tables/ViewTable";
 import { useRecords } from "../contexts/RecordContext";
 import { useUser } from "../contexts/UserContext";
 
-function ViewIncomePage() {
-  const { getAllIncomes, incomes } = useRecords();
+function ViewExpensePage() {
+  const { getAllExpenses, expenses } = useRecords();
   const { email } = useUser();
 
   useEffect(() => {
     if (!email) return;
-    getAllIncomes();
+    getAllExpenses();
   }, [email]);
 
-  return (
-    <>
-      <h1 className="block mx-auto w-32 text-lg">My Income</h1>
-
-      <ViewTable records={incomes} type="INCOME" />
-    </>
-  );
+  return <ViewTable type={"EXPENSE"} records={expenses} />;
 }
 
-export default ViewIncomePage;
+export default ViewExpensePage;

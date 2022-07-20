@@ -1,7 +1,21 @@
 import React from "react";
-import IncomeEditRow from "./IncomeEditRow";
+import usePagination from "../../custom_hooks/usePagination";
+import PageTab from "../pagination/PageTab";
+import EditRow from "./EditRow";
 
-function IncomeEditTable({ records }) {
+function EditTable({ records, type }) {
+  const {
+    pageNumber,
+    page,
+    setPage,
+    pageGroupNumber,
+    setPageGroupNumber,
+    pageGroupCount,
+    currentRecords,
+    pages,
+    currentPages,
+  } = usePagination(records, 4, 3);
+
   return (
     <>
       <div className="flex flex-col">
@@ -38,12 +52,13 @@ function IncomeEditTable({ records }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {records.map((record, index) => {
+                  {currentRecords.map((record, index) => {
                     return (
-                      <IncomeEditRow
+                      <EditRow
                         key={record.id}
                         record={record}
                         index={index}
+                        type={type}
                       />
                     );
                   })}
@@ -53,8 +68,15 @@ function IncomeEditTable({ records }) {
           </div>
         </div>
       </div>
+      <PageTab
+        currentPages={currentPages}
+        setPage={setPage}
+        setPageGroupNumber={setPageGroupNumber}
+        pageGroupNumber={pageGroupNumber}
+        pageGroupCount={pageGroupCount}
+      />
     </>
   );
 }
 
-export default IncomeEditTable;
+export default EditTable;

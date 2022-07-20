@@ -20,6 +20,7 @@ function Navbar() {
         <div
           className="border border-black w-20 h-10 bg-black text-white flex justify-center items-center p-0"
           role={"button"}
+          onClick={() => navigate("/")}
         >
           Home
         </div>

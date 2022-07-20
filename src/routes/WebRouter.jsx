@@ -1,19 +1,20 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ErrorToast from "../components/common/ErrorToast";
-import Modal from "../components/common/Modal";
 import Spinner from "../components/common/Spinner";
-import Navbar from "../components/navbar/Navbar";
 import UserOutlet from "../components/outlets/UserOutlet";
 import { useError } from "../contexts/ErrorContext";
 import { useLoading } from "../contexts/LoadingContext";
 import { LoginContextProvider } from "../contexts/LoginContext";
 import { RegisterContextProvider } from "../contexts/RegisterContext";
-import { UserContextProvider, useUser } from "../contexts/UserContext";
+import { useUser } from "../contexts/UserContext";
+import EditExpensePage from "../pages/EditExpensePage";
 import EditIncomePage from "../pages/EditIncomePage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import ViewExpensePage from "../pages/ViewExpensePage";
+import ViewIncomePage from "../pages/ViewIncomePage";
 import { getAccessToken } from "../services/localStorage";
 
 function WebRouter() {
@@ -52,6 +53,9 @@ function WebRouter() {
       <Route path="/" element={<UserOutlet />}>
         <Route path="" element={<HomePage />} />
         <Route path="edit-income" element={<EditIncomePage />} />
+        <Route path="view-income" element={<ViewIncomePage />} />
+        <Route path="edit-expense" element={<EditExpensePage />} />
+        <Route path="view-expense" element={<ViewExpensePage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
