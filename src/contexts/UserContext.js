@@ -1,4 +1,4 @@
-import { getAccessToken } from "../services/localStorage";
+import { getAccessToken, removeAccessToken } from "../services/localStorage";
 import { useError } from "./ErrorContext";
 import { useLoading } from "./LoadingContext";
 import axios from "../config/axios";
@@ -34,6 +34,7 @@ const UserContextProvider = ({ children }) => {
       setUsername(res.data.user.username);
     } catch (err) {
       setError(err.response.data.message);
+      removeAccessToken();
     } finally {
       setLoading(false);
     }
