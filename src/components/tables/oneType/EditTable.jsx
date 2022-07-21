@@ -14,7 +14,7 @@ function EditTable({ records, type }) {
     currentRecords,
     pages,
     currentPages,
-  } = usePagination(records, 4, 3);
+  } = usePagination(records, 10, 3);
 
   return (
     <>

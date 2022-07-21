@@ -35,7 +35,7 @@ const RecordContextProvider = ({ children }) => {
     }
   };
 
-  const getRecords = async (queryObj) => {
+  const getRecords = async (queryObj = {}) => {
     try {
       let query = "";
       if (queryObj["today"]) {

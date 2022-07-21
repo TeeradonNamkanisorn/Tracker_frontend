@@ -1,49 +1,40 @@
 import React, { useState } from "react";
+import usePagination from "../../../custom_hooks/usePagination";
 import PageTab from "../../pagination/PageTab";
 import AllViewRow from "./AllViewRow";
 
 function AllViewTable({ records }) {
-  const recordsPerPage = 3;
-  const pagesPerTab = 3;
-  const pageNumber = Math.ceil(records.length / recordsPerPage) || 1;
-  const [page, setPage] = useState(1);
-  const [pageGroupNumber, setPageGroupNumber] = useState(1);
-  const pageGroupCount = Math.ceil(pageNumber / pagesPerTab) || 1;
-  const currentRecords = records.slice(
-    (page - 1) * recordsPerPage,
-    page * recordsPerPage
-  );
-
-  let pages = [];
-  for (let i = 1; i <= pageNumber; i++) {
-    pages.push(i);
-  }
-
-  const currentPages = pages.slice(
-    (pageGroupNumber - 1) * pagesPerTab,
-    pageGroupNumber * pagesPerTab
-  );
-
-  let maxExpense = currentRecords.reduce((max, cur) => {
+  let maxExpense = records.reduce((max, cur) => {
     if (max <= cur.amount && cur.type === "EXPENSE") return cur.amount;
     return max;
     //0.000001 for the edge case of division by 0
   }, 0.000000000000000001);
-  let maxIncome = currentRecords.reduce((max, cur) => {
+  let maxIncome = records.reduce((max, cur) => {
     if (max <= cur.amount && cur.type === "INCOME") return cur.amount;
     return max;
   }, 0.00000000000000001);
 
-  const recordsWithLevels = currentRecords.map((record) => {
+  const recordsWithLevels = records.map((record) => {
     let level = 1;
     if (record.type === "INCOME") {
-      //level 1-7
+      //level 1-5
       level = 1 + Math.round((4 * record.amount) / maxIncome);
     } else if (record.type === "EXPENSE") {
       level = 1 + Math.round((4 * record.amount) / maxExpense);
     }
     return { ...record, level };
   });
+  const {
+    pageNumber,
+    page,
+    setPage,
+    pageGroupNumber,
+    setPageGroupNumber,
+    pageGroupCount,
+    currentRecords,
+    pages,
+    currentPages,
+  } = usePagination(recordsWithLevels, 9, 3);
 
   return (
     <>
@@ -81,7 +72,7 @@ function AllViewTable({ records }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {recordsWithLevels.map((record, index) => {
+                  {currentRecords.map((record, index) => {
                     return (
                       <AllViewRow
                         key={record.id}

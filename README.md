@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# App Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+go to root directory -> npm install
 
-## Available Scripts
+## Launch Backend Server
 
-In the project directory, you can run:
+See README.md in the backend repository
 
-### `npm start`
+## Starting app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If the data was seeded properly in the backend, when logged in with the test account provided, the records created with the seeder should be seen.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Creating income records
 
-### `npm test`
+Click the green box in the nav bar to open a dropdown menu. Click create to navigate to the page.
+After having created an income, you can either go to the view page via a link provided in the confirm page. Or return to the creator interface to create another income record.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Viewing income
 
-### `npm run build`
+Income records can either be viewed in the Homepage (Navbar -> Home) or in the Income View Page (Navbar -> Income -> View) or in the edit page (Navbar -> Income -> Edit).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Editing Income
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate to the edit page by Navbar -> Income -> Edit
+To delete an income record, click the **bin icon** in the rightmost area of the table. The click confirm.
+To Edit click the **pen icon** in the same area.
+Alternatively, income records can be created here as well by **create income record**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Creating/Viewing/Editing Expense
 
-### `npm run eject`
+Same as income but uses a different Navbar drop down on the right.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Pagination
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Page navigation tab can be seen near the bottom of the screen for every table in the website.
+If there are more than 9-10 records that can fit on a page then the data is split into multiple part on different pages.
+Click to a different page to view another page of data. The data is sorted from oldest to newest dates.
+If there are more than 3 pages, click **next** or **previous** to see diffrent page numbers.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Home Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+When entering the home page, at first, only records that were created today can be seen. To get every records on a specific date, select a date in the calendar input on the top left then click the orange **Find by date** button.
+To get today's records again, click **Find Today's Records**.
+To get every record ever created, click the **Get Every Record** in the same top-left area.
 
-## Learn More
+In the bottom left corner of the page, net revenue is shown which is the sum of all income records minus all expense records.
+To view net expense or net income, click the select tab on the top-right and choose the option you wish.
+The summary amount also changes as you pick a different date.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Note
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The timezone for this app is GMT+7.

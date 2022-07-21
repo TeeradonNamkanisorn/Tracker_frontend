@@ -6,6 +6,7 @@ import { useError } from "../contexts/ErrorContext";
 import { setAccessToken } from "../services/localStorage";
 import Navbar from "../components/navbar/Navbar";
 import { useUser } from "../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 function RegisterPage() {
   const obj = useRegister();
@@ -35,7 +36,7 @@ function RegisterPage() {
     try {
       //validation step
       if (confirmPassword !== password) {
-        return;
+        return setError("Passwords must be the same.");
       }
 
       const body = { username, email, password };
@@ -120,6 +121,12 @@ function RegisterPage() {
           </button>
         </form>
       </div>
+      <Link
+        className="text-blue-700 underline text-center block mx-auto"
+        to={"/login"}
+      >
+        Already have an account? Login here
+      </Link>
     </>
   );
 }
