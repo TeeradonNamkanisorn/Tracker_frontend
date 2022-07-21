@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AllViewTable from "../components/tables/AllViewTable";
+import AllViewTable from "../components/tables/allTypes/AllViewTable";
 import { useError } from "../contexts/ErrorContext";
 import { useLoading } from "../contexts/LoadingContext";
 import { useRecords } from "../contexts/RecordContext";

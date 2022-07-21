@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ViewTable from "../components/tables/ViewTable";
+import ViewTable from "../components/tables/oneType/ViewTable";
 import { useRecords } from "../contexts/RecordContext";
 import { useUser } from "../contexts/UserContext";
 

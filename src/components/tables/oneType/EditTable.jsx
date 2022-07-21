@@ -1,6 +1,6 @@
 import React from "react";
-import usePagination from "../../custom_hooks/usePagination";
-import PageTab from "../pagination/PageTab";
+import usePagination from "../../../custom_hooks/usePagination";
+import PageTab from "../../pagination/PageTab";
 import EditRow from "./EditRow";
 
 function EditTable({ records, type }) {

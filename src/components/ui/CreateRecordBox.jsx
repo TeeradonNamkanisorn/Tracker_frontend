@@ -37,13 +37,14 @@ function CreateRecordBox({ setShowModal, type }) {
       <form className="w-full">
         <div className="flex items-center">
           <label
-            htmlFor="incomeTitle"
+            htmlFor="recordTitle"
             className=" rounded-md px-3 py-1 w-20  bg-black text-white mx-1"
           >
             Title
           </label>
 
           <input
+            id="recordTitle"
             type={"text"}
             className="border border-black w-[70%] ml-3"
             value={title}
@@ -53,7 +54,7 @@ function CreateRecordBox({ setShowModal, type }) {
 
         <div className="py-4 flex">
           <label
-            htmlFor="incomeAmount"
+            htmlFor="recordAmount"
             className=" rounded-md px-3 py-1 w-20  bg-green-600 text-white mx-1"
           >
             Amount
@@ -61,7 +62,7 @@ function CreateRecordBox({ setShowModal, type }) {
           <input
             type={"number"}
             className="border ml-3"
-            id="incomeAmount"
+            id="recordAmount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
@@ -69,7 +70,7 @@ function CreateRecordBox({ setShowModal, type }) {
 
         <div className="flex">
           <label
-            htmlFor="incomeDate"
+            htmlFor="recordDate"
             className=" rounded-md px-3 py-1 w-20  bg-blue-600 text-white mx-1"
           >
             Date
@@ -77,7 +78,7 @@ function CreateRecordBox({ setShowModal, type }) {
           <input
             type={"datetime-local"}
             className="border ml-3"
-            id="incomeDate"
+            id="recordDate"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             max={new Date()}

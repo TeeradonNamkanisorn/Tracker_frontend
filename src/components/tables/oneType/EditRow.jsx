@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { formattedInputDateTime } from "../../services/dateTime";
-import axios from "../../config/axios";
-import { useError } from "../../contexts/ErrorContext";
-import { useLoading } from "../../contexts/LoadingContext";
-import { useRecords } from "../../contexts/RecordContext";
-import Modal from "../common/Modal";
+import { formattedInputDateTime } from "../../../services/dateTime";
+import axios from "../../../config/axios";
+import { useError } from "../../../contexts/ErrorContext";
+import { useLoading } from "../../../contexts/LoadingContext";
+import { useRecords } from "../../../contexts/RecordContext";
+import Modal from "../../common/Modal";
 
 function EditRow({ record, index, type }) {
   const formattedInputDate = formattedInputDateTime(record.date);

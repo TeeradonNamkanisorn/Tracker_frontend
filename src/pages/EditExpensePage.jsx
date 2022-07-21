@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../components/common/Modal";
-import EditTable from "../components/tables/EditTable";
+import EditTable from "../components/tables/oneType/EditTable";
 import CreateRecordBox from "../components/ui/CreateRecordBox";
 import { useRecords } from "../contexts/RecordContext";
 import { useUser } from "../contexts/UserContext";

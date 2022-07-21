@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PageTab from "../pagination/PageTab";
+import PageTab from "../../pagination/PageTab";
 import AllViewRow from "./AllViewRow";
 
 function AllViewTable({ records }) {
