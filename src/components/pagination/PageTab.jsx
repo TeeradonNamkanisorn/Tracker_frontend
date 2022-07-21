@@ -2,6 +2,7 @@ import React from "react";
 
 function PageTab({
   currentPages,
+  page,
   setPage,
   setPageGroupNumber,
   pageGroupNumber,
@@ -27,7 +28,11 @@ function PageTab({
         {currentPages.map((num) => {
           return (
             <button
-              className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white"
+              className={`px-4 py-2 rounded-md hover:bg-blue-400 hover:text-white ${
+                page === num
+                  ? "text-white bg-gray-600"
+                  : "text-gray-700 bg-gray-200"
+              }`}
               key={num}
               onClick={() => setPage(num)}
             >

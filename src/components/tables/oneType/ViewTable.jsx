@@ -75,6 +75,7 @@ function ViewTable({ records, type }) {
         setPageGroupNumber={setPageGroupNumber}
         pageGroupNumber={pageGroupNumber}
         pageGroupCount={pageGroupCount}
+        page={page}
       />
     </>
   );

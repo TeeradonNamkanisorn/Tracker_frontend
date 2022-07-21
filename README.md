@@ -4,9 +4,13 @@ go to root directory -> npm install
 
 ## Launch Backend Server
 
-See README.md in the backend repository
+See README.md in the backend repository https://github.com/TeeradonNamkanisorn/Tracker_backend
 
-## Starting app
+## Starting the app
+
+run the command line: npm start
+
+#### About seeding
 
 If the data was seeded properly in the backend, when logged in with the test account provided, the records created with the seeder should be seen.
 

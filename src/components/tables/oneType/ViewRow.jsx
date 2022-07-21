@@ -27,7 +27,7 @@ function ViewRow({ record, index, type }) {
         {record.amount}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-        {record.date}
+        {record.date.slice(0, record.date.length - 3)}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap relative">
         {record.type}

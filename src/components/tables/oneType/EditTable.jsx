@@ -74,6 +74,7 @@ function EditTable({ records, type }) {
         setPageGroupNumber={setPageGroupNumber}
         pageGroupNumber={pageGroupNumber}
         pageGroupCount={pageGroupCount}
+        page={page}
       />
     </>
   );

@@ -93,6 +93,7 @@ function AllViewTable({ records }) {
         setPageGroupNumber={setPageGroupNumber}
         pageGroupNumber={pageGroupNumber}
         pageGroupCount={pageGroupCount}
+        page={page}
       />
     </>
   );

@@ -99,7 +99,7 @@ function HomePage() {
           </button>
         </div>
         <div className="flex items-center border mr-5 mt-5 rounded-tl-lg rounded-bl-lg">
-          <span className="px-2 py-1 border-r h-full flex items-center justify-center">
+          <span className="px-2 py-1 border-r h-full flex items-center justify-center bg-purple-700 text-white rounded-tl-lg rounded-bl-lg">
             Summary Mode
           </span>
           <select

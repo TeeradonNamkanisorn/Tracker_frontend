@@ -7,7 +7,7 @@ import DropDownIncome from "./DropDownIncome";
 
 function Navbar() {
   const navigate = useNavigate();
-  const { clearUser } = useUser();
+  const { clearUser, username } = useUser();
 
   const handleLogout = () => {
     removeAccessToken();
@@ -41,10 +41,10 @@ function Navbar() {
           Logout
         </div>
         <div
-          className="border border-black w-20 h-10 bg-blue-500 text-white flex justify-center items-center p-0"
+          className="border border-black max-w-60 overflow-auto h-10 bg-blue-500 text-white flex justify-center items-center px-1 py-1"
           role={"button"}
         >
-          About
+          {username}
         </div>
       </div>
     </div>
