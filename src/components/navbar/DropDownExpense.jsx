@@ -35,20 +35,26 @@ function DropDownExpense() {
       >
         Expense
         {show && (
-          <>
+          <div className="absolute top-10 w-full">
             <div
-              className="absolute bg-red-400 text-white top-10 h-8 border-black border text-sm w-full flex justify-center items-center"
+              className=" bg-red-400 text-white h-8 border-black border text-sm w-full flex justify-center items-center"
               onClick={() => navigate("/view-expense")}
             >
               View
             </div>
             <div
-              className="absolute bg-red-400 text-white top-[73px] h-8 border-black border text-sm w-full flex justify-center items-center"
+              className=" bg-red-400 text-white  h-8 border-black border text-sm w-full flex justify-center items-center"
               onClick={() => navigate("/edit-expense")}
             >
               Edit
             </div>
-          </>
+            <div
+              className=" bg-red-400 text-white h-8 border-black border text-sm w-full flex justify-center items-center"
+              onClick={() => navigate("/create-expense")}
+            >
+              Create
+            </div>
+          </div>
         )}
       </div>
     </>

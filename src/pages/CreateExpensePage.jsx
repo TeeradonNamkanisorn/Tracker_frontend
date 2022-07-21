@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import CreateRecordForm from "../components/ui/CreateRecordForm";
 import { useError } from "../contexts/ErrorContext";
 import { useLoading } from "../contexts/LoadingContext";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import axios from "../config/axios";
+import CreateRecordForm from "../components/ui/CreateRecordForm";
 import ConfirmCreate from "../components/success-confirm/ConfirmCreate";
 
-function CreateIncomePage() {
-  //   const isoStr = new Date().toISOString();
-  //   const initialDateValue = isoStr.substring(0, isoStr.length - 8);
+function CreateExpensePage() {
   const [completed, setCompleted] = useState(false);
   const { setError } = useError();
   const { setLoading } = useLoading();
@@ -20,7 +17,7 @@ function CreateIncomePage() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post("/record", { title, amount, date, type: "INCOME" });
+      await axios.post("/record", { title, amount, date, type: "EXPENSE" });
       setTitle("");
       setAmount(0);
       setDate("");
@@ -45,12 +42,12 @@ function CreateIncomePage() {
         title={title}
         setTitle={setTitle}
         handleSubmit={handleSubmit}
-        type="INCOME"
+        type="EXPENSE"
       />{" "}
     </>
   ) : (
-    <ConfirmCreate setCompleted={setCompleted} />
+    <ConfirmCreate type="EXPENSE" setCompleted={setCompleted} />
   );
 }
 
-export default CreateIncomePage;
+export default CreateExpensePage;

@@ -8,6 +8,7 @@ import { useLoading } from "../contexts/LoadingContext";
 import { LoginContextProvider } from "../contexts/LoginContext";
 import { RegisterContextProvider } from "../contexts/RegisterContext";
 import { useUser } from "../contexts/UserContext";
+import CreateExpensePage from "../pages/CreateExpensePage";
 import CreateIncomePage from "../pages/CreateIncomePage";
 import EditExpensePage from "../pages/EditExpensePage";
 import EditIncomePage from "../pages/EditIncomePage";
@@ -58,6 +59,7 @@ function WebRouter() {
         <Route path="edit-expense" element={<EditExpensePage />} />
         <Route path="view-expense" element={<ViewExpensePage />} />
         <Route path="create-income" element={<CreateIncomePage />} />
+        <Route path="create-expense" element={<CreateExpensePage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
